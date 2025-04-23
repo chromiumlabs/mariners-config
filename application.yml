@@ -18,6 +18,11 @@ spring:
 server.servlet.session:
   timeout: 9h
   persistent: true
+  
+otel.resource:
+  attributes.deployment:
+    environment: local
+    building: laptop
 
 ---
 
@@ -27,6 +32,11 @@ spring:
 server.servlet.session:
   timeout: 2h
   persistent: true
+  
+otel.resource:
+  attributes.deployment:
+    environment: test
+    building: test
 
 ---
 
@@ -37,3 +47,7 @@ server.servlet.session:
   timeout: 2h
   persistent: true
 
+otel.resource:
+  attributes:
+    deployment.environment: prod
+    deployment.building: annex-0
