@@ -1,0 +1,39 @@
+otel.metric.export.interval: 60000
+
+server.servlet.session:
+  timeout: 9h
+  persistent: true
+
+app:
+  security.session.max: 1
+  observability.faro:
+    enabled: false
+    collector: "location.protocol + '//' + location.hostname + ':12346/collect'"
+
+---
+
+spring:
+  config.activate.on-profile: local
+
+server.servlet.session:
+  timeout: 9h
+  persistent: true
+
+---
+
+spring:
+  config.activate.on-profile: test
+
+server.servlet.session:
+  timeout: 2h
+  persistent: true
+
+---
+
+spring:
+  config.activate.on-profile: prod
+
+server.servlet.session:
+  timeout: 2h
+  persistent: true
+
